@@ -1,5 +1,5 @@
 {
-    "name": "shockwavedesign/magento2-module-mail-mailgun",
+    "name": "shockwavedesign/magento2-module-mail-sendpulse",
     "description": "Extend Magento2 by sendpulse support",
     "require": {
     },
