@@ -2,6 +2,7 @@
     "name": "shockwavedesign/magento2-module-mail-sendpulse",
     "description": "Extend Magento2 by sendpulse support",
     "require": {
+        "shockwavemk/magento2-module-mail": "dev-master"
     },
     "type": "magento2-module",
     "license": [
@@ -13,7 +14,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "Shockwavemk\\Mail\\Sendpulse\\": ""
+            "Shockwavedesign\\Mail\\Sendpulse\\": ""
         }
     }
 }

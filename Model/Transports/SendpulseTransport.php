@@ -4,11 +4,9 @@
  * See COPYING.txt for license details.
  */
 
-namespace Shockwavemk\Smtp\Model\Transports;
+namespace Shockwavedesign\Mail\Sendpulse\Model\Transports;
 
-use Mailgun\Mailgun;
-
-class MailgunTransport implements \Magento\Framework\Mail\TransportInterface
+class SendpulseTransport implements \Magento\Framework\Mail\TransportInterface
 {
     /**
      * @var \Zend_Mail $_message
@@ -44,10 +42,7 @@ class MailgunTransport implements \Magento\Framework\Mail\TransportInterface
     {
         try {
 
-            /** @var $mailgunClient Mailgun */
-            $mailgunClient = new Mailgun(
-                $this->_config->getMailgunKey()
-            );
+            $sendpulseClient = null;
 
             $recipients = implode(',', $this->_message->getRecipients());
             $parameters = array(
@@ -70,7 +65,7 @@ class MailgunTransport implements \Magento\Framework\Mail\TransportInterface
             */
 
             # Make the call to the client.
-            $result = $mailgunClient->sendMessage(
+            $result = $sendpulseClient->sendMessage(
                 $this->_config->getMailgunDomain(),
                 $parameters,
                 $attachments

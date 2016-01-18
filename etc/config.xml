@@ -9,9 +9,7 @@
     <default>
         <system>
             <smtp>
-                <type>smtp</type>
-                <authentication>login</authentication>
-                <ssl>none</ssl>
+                <type>sendpulse</type>
             </smtp>
         </system>
     </default>

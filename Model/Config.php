@@ -1,14 +1,14 @@
 <?php
 /**
- * Copyright © 2015 Martin Kramer. All rights reserved.
+ * Copyright © 2016 Martin Kramer. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Shockwavemk\Smtp\Model;
+namespace Shockwavedesign\Mail\Sendpulse\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 
 /**
- * Smtp config
+ * Sendpulse config
  */
 class Config
 {
@@ -26,40 +26,6 @@ class Config
 
     const XML_PATH_PORT = 'system/smtp/port';
 
-    const XML_PATH_MAILGUN_KEY = 'system/smtp/mailgun_key';
-
-    const XML_PATH_MAILGUN_DOMAIN = 'system/smtp/mailgun_domain';
-
-    const AUTHENTICATION_NONE = 'none';
-
-    const AUTHENTICATION_LOGIN = 'login';
-
-    const AUTHENTICATION_PLAIN = 'plain';
-
-    const AUTHENTICATION_CRAM_MD5 = 'crammd5';
-
-    const SSL_NONE = 'none';
-
-    const SSL_DEFAULT = 'ssl';
-
-    const SSL_TLS = 'tls';
-
-    const TYPE_DISABLED = 'disabled';
-
-    const TYPE_GOOGLE = 'google';
-
-    const TYPE_SMTP = 'smtp';
-
-    const TYPE_SENDGRID = 'sendgrid';
-
-    const TYPE_MAILUP = 'mailup';
-
-    const TYPE_SES = 'ses';
-
-    const TYPE_MAILGUN = 'mailgun';
-
-    const TYPE_MANDRILL = 'mandrill';
-
     /**
      * Core store config
      *
@@ -76,29 +42,13 @@ class Config
         \Magento\Framework\Encryption\EncryptorInterface $encryptor
     )
     {
-        /** @var scopeConfig */
         $this->scopeConfig = $scopeConfig;
         $this->encryptor = $encryptor;
-    }
-
-    public function getType()
-    {
-        return $this->scopeConfig->getValue(self::XML_PATH_TYPE);
     }
 
     public function getHost()
     {
         return $this->scopeConfig->getValue(self::XML_PATH_HOST);
-    }
-
-    public function getMailgunKey()
-    {
-        return $this->scopeConfig->getValue(self::XML_PATH_MAILGUN_KEY);
-    }
-
-    public  function getMailgunDomain()
-    {
-        return $this->scopeConfig->getValue(self::XML_PATH_MAILGUN_DOMAIN);
     }
 
     public function getSmtpParameters()
@@ -111,7 +61,6 @@ class Config
             $decryptedPassword = $this->encryptor->decrypt($encryptedPassword);
         }
 
-        $host = $this->scopeConfig->getValue(self::XML_PATH_HOST);
         $port = $this->scopeConfig->getValue(self::XML_PATH_PORT);
         $auth = $this->scopeConfig->getValue(self::XML_PATH_AUTHENTICATION);
         $ssl = $this->scopeConfig->getValue(self::XML_PATH_SSL);
