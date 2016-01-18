@@ -12,5 +12,14 @@
                 <type>sendpulse</type>
             </smtp>
         </system>
+        <transport>
+            <types>
+                <mailgun>
+                    <lable>Sendpulse</lable>
+                    <value>sendpulse</value>
+                    <class>Shockwavedesign\Mail\Sendpulse\Model\Transports\SendpulseTransport</class>
+                </mailgun>
+            </types>
+        </transport>
     </default>
 </config>
